@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\book;
+use App\customer;
 
 class adminController extends Controller
 {
@@ -33,7 +34,25 @@ class adminController extends Controller
     }
 
     function userlist(){
-        return view('admin.userlist');
+        $customer = customer :: all();
+        return view('admin.userlist')->with('users', $customer);
+    }
+    function customeredit($id){
+         $customer = customer:: find($id);
+         return view('admin.customeredit')->with('user', $customer);
+    }
+    function customerupdate(Request $request, $id){
+        $customer = customer:: find($id);
+        //$customer = new customer();
+       // $customer->type = $request->type;
+        $customer->username = $request->username;
+        $customer->password = $request->password;
+        $customer->email = $request->email;
+        $customer->save();
+        return redirect()->route('customerlist');
+   }
+    function customerdelete(){
+        echo "delete";
     }
 
 }

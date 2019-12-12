@@ -25,7 +25,13 @@ Route::get('/adminhome', 'adminController@index')->name('adminHome.index');
 
 Route::get('/customerhome', 'customerController@index')->name('customerHome.index');
 
-Route::get('/userlist', 'adminController@userlist');
+Route::get('/userlist', 'adminController@userlist')->name('customerlist');
+
+Route::get('/customer/edit/{id}', 'adminController@customeredit')->name('customer.edit');
+Route::post('/customer/edit/{id}', 'adminController@customerupdate');
+
+
+Route::get('/customer/delete/{id}', 'adminController@customerdelete')->name('customer.delete');
 
 Route::get('/addbook', 'adminController@addbook')->name('admin.addbook');
 Route::post('/addbook', 'adminController@storebook');

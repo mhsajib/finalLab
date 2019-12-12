@@ -8,7 +8,7 @@
 
     <a href="/userlist">User List</a>|
     <a href="/addbook">Add Book</a>|
-    <a href="/logout">Logout</a>
+    <a href="/login">Logout</a>
 
 </body>
 </html>
