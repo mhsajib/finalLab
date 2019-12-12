@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\book;
 
 class customerController extends Controller
 {
     //
     function index(){
-        return view('customer.index');
+        $book = book :: all();
+        return view('customer.index')->with('users', $book);
     }
 }

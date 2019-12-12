@@ -12,6 +12,7 @@
 <br><br>
 
 <form method="post">
+<input type="hidden" name="_token" value="<?php echo e(csrf_token()); ?>">
 	<table border="0">
 		<tr>
 			<td>Username</td>
@@ -23,7 +24,7 @@
 		</tr>
 		<tr>
 			<td>EMAIL</td>
-			<td><input type="text" name="password" value="<?php echo e($user['email']); ?>"></td>
+			<td><input type="text" name="email" value="<?php echo e($user['email']); ?>"></td>
 		</tr>
 		<tr>
 			<td></td>

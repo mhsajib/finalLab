@@ -12,6 +12,7 @@
 <br><br>
 
 <form method="post">
+<input type="hidden" name="_token" value="{{csrf_token()}}">
 	<table border="0">
 		<tr>
 			<td>Username</td>
@@ -23,7 +24,7 @@
 		</tr>
 		<tr>
 			<td>EMAIL</td>
-			<td><input type="text" name="password" value="{{$user['email']}}"></td>
+			<td><input type="text" name="email" value="{{$user['email']}}"></td>
 		</tr>
 		<tr>
 			<td></td>

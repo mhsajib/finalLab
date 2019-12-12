@@ -38,21 +38,24 @@ class adminController extends Controller
         return view('admin.userlist')->with('users', $customer);
     }
     function customeredit($id){
-         $customer = customer:: find($id);
+         $customer = customer::find($id);
          return view('admin.customeredit')->with('user', $customer);
     }
     function customerupdate(Request $request, $id){
-        $customer = customer:: find($id);
+        $customer = customer::find($id);
         //$customer = new customer();
        // $customer->type = $request->type;
         $customer->username = $request->username;
         $customer->password = $request->password;
         $customer->email = $request->email;
         $customer->save();
-        return redirect()->route('customerlist');
+        return redirect()->route('customer.list');
    }
-    function customerdelete(){
-        echo "delete";
+    function customerdelete($id){
+        $customer = customer::find($id);
+        $customer->delete();
+        return redirect()->route('customer.list');
+
     }
 
 }
